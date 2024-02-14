@@ -1,34 +1,42 @@
-const formOfLogin = document.querySelector(".login-form");
-formOfLogin.addEventListener("submit", handleSubmit);
-function handleSubmit(event) {
-  event.preventDefault();
-  if (
-    formOfLogin.elements.password.value === "" ||
-    formOfLogin.elements.email.value === ""
-  ) {
-    return alert("Enter letters in stroke");
-  }
-  console.log({
-    email: event.currentTarget.elements.email.value,
-    password: event.currentTarget.elements.password.value,
-  });
-  event.currentTarget.reset();
-}
+// const loginForm = document.querySelector(".login-form");
 
-// const form = document.querySelector(".login-form");
+// loginForm.addEventListener("submit", onClickForm);
 
-// form.addEventListener("submit", handleSubmit);
-
-// function handleSubmit(event) {
+// function onClickForm(event) {
 //   event.preventDefault();
-//   const {
-//     elements: { login, password },
-//   } = event.currentTarget;
 
-//   if (login === "" || password === "") {
-//     return console.log("Please fill in all the fields!");
+//   const email = event.currentTarget.elements.email.value;
+//   const password = event.currentTarget.elements.password.value;
+
+//   if (password === "" || email === "") {
+//     alert("Fill in all fields");
+//   } else {
+//     const formEl = {
+//       email: email,
+//       password: password,
+//     };
+//     console.log(formEl);
+//     loginForm.reset();
+//   }
+// }
+
+// const loginForm = document.querySelector(".login-form");
+// loginForm.addEventListener("submit", onSubmitForm);
+// function onSubmitForm(event) {
+//   event.preventDefault();
+
+//   const { email, password } = loginForm.elements;
+//   console.log(loginForm.elements);
+
+//   if (email.value === "" || password.value === "") {
+//     alert("write down");
+//   } else {
+//     const elements = {
+//       email: email.value,
+//       password: password.value,
+//     };
+//     console.log(elements);
 //   }
 
-//   console.log(`Login: ${login}, Password: ${password}`);
-//   event.currentTarget.reset();
+//   loginForm.reset();
 // }
