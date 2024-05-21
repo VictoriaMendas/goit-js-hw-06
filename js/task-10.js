@@ -24,11 +24,13 @@ function createBoxes(amount) {
   boxes.append(...elements);
 }
 
+console.log(result);
 btnCreate.addEventListener("click", onCreateBtn);
 
 function onCreateBtn(event) {
   const amount = input.value;
   destroyBoxes();
+
   createBoxes(amount);
 }
 function destroyBoxes() {
