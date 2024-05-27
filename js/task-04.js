@@ -9,7 +9,7 @@ function onClickForm(event) {
   const password = event.currentTarget.elements.password.value;
 
   if (password === "" || email === "") {
-    alert("Fill in all fields");
+    alert("All form fields must be filled in");
   } else {
     const formEl = {
       email: email,

@@ -7,5 +7,4 @@ input.addEventListener("input", () => {
   } else {
     span.textContent = input.value;
   }
-  console.log(input.value);
 });
