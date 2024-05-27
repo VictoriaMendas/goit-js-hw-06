@@ -1,57 +1,79 @@
-const input = document.querySelector("#validation-input");
-
-input.addEventListener("blur", onClickInput);
-
-function onClickInput(event) {
-  const enteredLength = input.value.length;
-  const inputLength = input.getAttribute("data-length");
-
-  if (Number(inputLength) === enteredLength) {
-    input.classList.add("valid");
-    input.classList.remove("invalid");
-  } else {
-    input.classList.add("invalid");
-    input.classList.remove("valid");
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, 0)}`;
+}
+const contols = document.querySelector("controls");
+const btnCreate = document.querySelector("[data-create]");
+const btnDestroy = document.querySelector("[data-destroy]");
+const boxes = document.querySelector("#boxes");
+const input = document.querySelector("input");
+// console.log(btnCreate);
+function createBoxes(amount) {
+  let size = 30;
+  const elements = [];
+  for (let i = 0; i < amount; i++) {
+    const divEl = document.createElement("div");
+    const color = getRandomHexColor();
+    divEl.style.width = `${size}px`;
+    divEl.style.height = `${size}px`;
+    divEl.style.backgroundColor = `${color}`;
+    elements.push(divEl);
+    size += 10;
   }
+  boxes.append(...elements);
 }
 
-const inputEl = document.querySelector("#validation-input");
-inputEl.addEventListener("blur", onOutput);
+console.log(result);
+btnCreate.addEventListener("click", onCreateBtn);
 
-function onOutput(event) {
-  const inputValue = event.target.value;
-  console.log(event.currentTarget.dataset);
-  const expectedLength = Number(inputEl.getAttribute("data-length"));
+function onCreateBtn(event) {
+  const amount = input.value;
+  destroyBoxes();
 
-  if (inputValue.length === expectedLength) {
-    inputEl.classList.add("valid");
-    inputEl.classList.remove("invalid");
-  } else {
-    inputEl.classList.add("invalid");
-    inputEl.classList.remove("valid");
-  }
+  createBoxes(amount);
 }
-
-/ /
-/
-/
-/
-/
-/
-/
-
-/ const textInput = document.querySelector("#validation-input");
-textInput.addEventListener("blur", onInputBlur);
-
-function onInputBlur(event) {
-  const inputValue = event.currentTarget.value.length;
-  const dataLengthValue = Number(event.currentTarget.dataset.length);
-
-  if (inputValue === dataLengthValue) {
-    textInput.classList.add("valid");
-    textInput.classList.remove("invalid");
-  } else {
-    textInput.classList.add("invalid");
-    textInput.classList.remove("valid");
-  }
+function destroyBoxes() {
+  boxes.innerHTML = "";
 }
+function onDestroyBtn(event) {
+  destroyBoxes();
+}
+btnDestroy.addEventListener("click", onDestroyBtn);
+// function getRandomHexColor() {
+//   return `#${Math.floor(Math.random() * 16777215)
+//     .toString(16)
+//     .padStart(6, 0)}`;
+// }
+// const controls = document.querySelector("#controls");
+// const boxes = document.querySelector("#boxes");
+// const btnCreate = document.querySelector(`[data-create]`);
+// const btnDestroy = document.querySelector(`[data-destroy]`);
+// const input = document.querySelector("input");
+
+// function createBoxes(amount) {
+//   let size = 30;
+//   for (let i = 0; i < amount; i++) {
+//     const divEl = document.createElement("div");
+//     const color = getRandomHexColor();
+//     divEl.style.width = `${size}px`;
+//     divEl.style.height = `${size}px`;
+//     divEl.style.backgroundColor = color;
+
+//     boxes.appendChild(divEl);
+//     size += 10;
+//   }
+// }
+
+// btnCreate.addEventListener("click", () => {
+//   const amount = Number(input.value);
+//   createBoxes(amount);
+// });
+
+// function destroyBtn() {
+//   boxes.innerHTML = "";
+// }
+
+// btnDestroy.removeEventListener("click", () => {
+//   destroyBtn();
+// });

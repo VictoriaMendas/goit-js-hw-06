@@ -1,23 +1,42 @@
-const buttonDec = document.querySelector("[data-action = 'decrement']");
-const buttonInc = document.querySelector("[data-action = 'increment']");
-const spanValue = document.querySelector("#value");
+const loginForm = document.querySelector(".login-form");
 
-let counterValue = 0;
-buttonDec.addEventListener("click", onClickDecrement);
-buttonInc.addEventListener("click", onClickIncrement);
+loginForm.addEventListener("submit", onClickForm);
 
-function onClickDecrement() {
-  counterValue -= 1;
-  spanValue.textContent = counterValue;
-  console.log(counterValue);
+function onClickForm(event) {
+  event.preventDefault();
+
+  const email = event.currentTarget.elements.email.value;
+  const password = event.currentTarget.elements.password.value;
+
+  if (password === "" || email === "") {
+    alert("Fill in all fields");
+  } else {
+    const formEl = {
+      email: email,
+      password: password,
+    };
+    console.log(formEl);
+    loginForm.reset();
+  }
 }
 
-function onClickIncrement() {
-  counterValue += 1;
-  spanValue.textContent = counterValue;
-  console.log(counterValue);
-}
+// const loginForm = document.querySelector(".login-form");
+// loginForm.addEventListener("submit", onSubmitForm);
+// function onSubmitForm(event) {
+//   event.preventDefault();
 
-// const [decrement, value, increment] =
-//   document.querySelector("#counter").children;
-// console.log(decrement.children);
+//   const { email, password } = loginForm.elements;
+//   console.log(loginForm.elements);
+
+//   if (email.value === "" || password.value === "") {
+//     alert("write down");
+//   } else {
+//     const elements = {
+//       email: email.value,
+//       password: password.value,
+//     };
+//     console.log(elements);
+//   }
+
+//   loginForm.reset();
+// }
