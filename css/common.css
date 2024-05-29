@@ -29,3 +29,34 @@ button {
   width: 400px;
   height: 200px;
 }
+
+#categories {
+  border: solid 1px grey;
+  background-color: #fff;
+  position: relative;
+  width: 440px;
+  height: 888px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  gap: 16px;
+  padding: 16px;
+}
+#categories li {
+  width: 292px;
+  background-color: #f6f6fe;
+  text-decoration: none;
+  padding: 10px;
+}
+li .item {
+  text-decoration: none;
+  text-transform: none;
+}
+.categories-title {
+  font-family: sans-serif;
+  color: #2e2f42;
+}
+.category-list-titles {
+  border: solid 1px #212121;
+  border-radius: 4px;
+}
