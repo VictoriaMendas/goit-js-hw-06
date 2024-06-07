@@ -36,19 +36,3 @@ const imgGallery = (newImg) => {
   gallery.insertAdjacentHTML("afterbegin", galleryItems);
 };
 imgGallery(images);
-
-// const galleryList = document.querySelector(".gallery");
-// galleryList.addEventListener("click", onGalleryListClick);
-// function onGalleryListClick(event) {
-//   console.log(event.currentTarget.nodeName);
-//   console.log(event.target.nodeName);
-// }
-// const markupImages = images
-//   .map(
-//     (image) => `<li>
-// <img src="${image.url}" alt="${image.alt}" width="300"></img>
-// </li>`
-//   )
-//   .join("");
-// galleryList.insertAdjacentHTML("afterbegin", markupImages);
-// console.log(markupImages);
