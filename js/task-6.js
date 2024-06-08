@@ -27,12 +27,16 @@ function createBoxes(amount) {
 btnCreate.addEventListener("click", onCreateBtn);
 
 function onCreateBtn() {
-  const amount = input.value;
+  const amount = parseInt(input.value, 10);
   destroyBoxes();
-  if (amount > 0 && amount <= 100) {
+
+  if (!isNaN(amount) && amount > 0 && amount <= 100) {
     createBoxes(amount);
+  } else {
+    alert("Please enter a number between 1 and 100.");
   }
 }
+
 function destroyBoxes() {
   boxes.innerHTML = "";
 }
